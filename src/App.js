@@ -21,8 +21,7 @@ export default function ToDoApp() {
   };
   const inputBox = {
     margin: "10px 0px",
-    width: "100%",
-    maxWidth: "490px",
+    width: "98%",
     display: "block",
     padding: "3px",
   };
