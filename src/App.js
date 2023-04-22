@@ -7,33 +7,31 @@ export default function ToDoApp() {
   const [activity, setActivity] = useState('');
   const [list, setList] = useState([]);
 
-  const myStyle = {
+  const formContent = {
     backgroundColor: "#f5f6f7",
     display: "block",
+    padding: "30px",
     marginLeft: "auto",
     marginRight: "auto",
     maxWidth: "500px",
+    marginTop: "30px",
   };
   const h1Style = {
-    paddingTop: "20px",
+    marginTop: "0px",
     textAlign: "center",
   };
   const inputBox = {
-    margin: "10px 20px",
+    margin: "10px 0px",
+    width: "100%",
+    maxWidth: "492px",
     display: "block",
-    marginLeft: "auto",
-    marginRight: "auto",
-    width: "452px",
   };
   const submitButton = {
-    margin: "10px 20px",
+    margin: "10px 0px",
     display: "block",
-    marginLeft: "auto",
-    marginRight: "auto",
-    width: "460px",
+    width: "100%",
   };
   const h2Style = {
-    marginLeft: "20px",
     marginTop: "30px",
     marginBottom: "0px",
   };
@@ -71,38 +69,40 @@ export default function ToDoApp() {
   }
 
   return (
-    <form style={myStyle} onSubmit={handleAfterSubmit}>
-      <h1 style={h1Style}>TO-DO LIST</h1>
-      <input 
-        style={inputBox}
-        placeholder="Type here..." 
-        value={activity}
-        onChange={handleInput}
-      />
-      <button 
-        style={submitButton}
-        type="submit" 
-        onClick={handleSubmitClick}
-      >
-        Submit
-      </button>
-      <h2 style={h2Style}>Your list:</h2>
-      <ul style={ulStyle}>
-        {list.map(list => (
-          <li 
-            style={{ display: "flex", alignItems: "center", marginBottom: "3px" }}
-            key={list.id}
-          >
-            <div style={{flexGrow: 1}}>{list.activity}{' '}</div>
-            <button 
+    <div>
+      <form style={formContent} onSubmit={handleAfterSubmit}>
+        <h1 style={h1Style}>TO-DO LIST</h1>
+        <input 
+          style={inputBox}
+          placeholder="Type here..." 
+          value={activity}
+          onChange={handleInput}
+        />
+        <button 
+          style={submitButton}
+          type="submit" 
+          onClick={handleSubmitClick}
+        >
+          Submit
+        </button>
+        <h2 style={h2Style}>Your list:</h2>
+        <ul style={ulStyle}>
+          {list.map(list => (
+            <li 
+              style={{ display: "flex", alignItems: "center", marginBottom: "3px" }}
+              key={list.id}
+            >
+              <div style={{flexGrow: 1}}>{list.activity}{' '}</div>
+              <button 
               style={{marginRight: "20px"}}
               onClick={() => handleDeleteClick(list.id)}
-            >
-              X
-            </button>
-          </li>
-        ))}
-      </ul>
-    </form>
+              >
+                X
+              </button>
+            </li>
+          ))}
+        </ul>
+      </form>
+    </div>
   );
 }
