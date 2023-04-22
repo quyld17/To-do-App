@@ -21,11 +21,15 @@ export default function ToDoApp() {
   const inputBox = {
     margin: "10px 20px",
     display: "block",
+    marginLeft: "auto",
+    marginRight: "auto",
     width: "452px",
   };
   const submitButton = {
     margin: "10px 20px",
     display: "block",
+    marginLeft: "auto",
+    marginRight: "auto",
     width: "460px",
   };
   const h2Style = {
