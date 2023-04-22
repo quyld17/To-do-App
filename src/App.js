@@ -3,7 +3,7 @@ import './App.css';
 
 let nextId = 0;
 
-export default function Input() {
+export default function ToDoApp() {
   const [activity, setActivity] = useState('');
   const [list, setList] = useState([]);
 
