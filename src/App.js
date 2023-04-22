@@ -22,13 +22,15 @@ export default function ToDoApp() {
   const inputBox = {
     margin: "10px 0px",
     width: "100%",
-    maxWidth: "492px",
+    maxWidth: "490px",
     display: "block",
+    padding: "3px",
   };
   const submitButton = {
     margin: "10px 0px",
     display: "block",
     width: "100%",
+    padding: "3px",
   };
   const h2Style = {
     marginTop: "30px",
@@ -37,7 +39,7 @@ export default function ToDoApp() {
   const ulStyle = {
     marginTop: "10px",
     listStyleType: "none",
-    paddingLeft: "30px",
+    paddingLeft: "20px",
   };
 
   function handleInput(e) {
@@ -88,7 +90,7 @@ export default function ToDoApp() {
         <ul style={ulStyle}>
           {list.map(list => (
             <li 
-              style={{ display: "flex", alignItems: "center", marginBottom: "3px" }}
+              style={{ display: "flex", alignItems: "center", paddingBottom: "6px" }}
               key={list.id}
             >
               <div style={{flexGrow: 1}}>{list.activity}{' '}</div>
