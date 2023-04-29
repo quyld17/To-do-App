@@ -14,12 +14,6 @@ export default function ToDoApp() {
     setActivity('');
   }
 
-  function handleDeleteClick(id) {
-    setList(
-      list.filter(a => a.id !== id)
-    );
-  }
-
   return (
     <form 
       className='form-content'
@@ -41,23 +35,19 @@ export default function ToDoApp() {
       </div>
       <h2 className='h2-style'>Your list:</h2>
       <ul className='ul-style'>                               {/*List*/}
-        {list.map(list => (                           
+        {list.map(ls => (                           
           <li 
             className='list-item'
-            key={list.id} 
+            key={ls.id} 
           >
             <div style={{flexGrow: 1}}>                       {/*Name of list's item*/} 
-              {list.activity}
+              {ls.activity}
             </div>
 
-            {/* <Delete  
+            <Delete                                           //Delete Button
               list={list}
               setList={setList}
-              key={list.id}
-            /> */}
-            <BsTrash                                          //Delete function
-              className="remove-button"
-              onClick={() => handleDeleteClick(list.id)}
+              id={ls.id}
             />
           </li>
         ))}
@@ -101,10 +91,14 @@ function AddButton({activity, list, setActivity, setList}) {  //Submit Component
   );
 }
 
-// function Delete({list, setList, id}) {                     //Delete Component
-//   return (
-//     setList(
-//       list.filter(a => a.id !== id)
-//     )
-//   )
-// }
+function Delete({list, setList, id}) {                     //Delete Component
+  return (
+    <BsTrash
+    className="remove-button" 
+      onClick={() => {
+        setList(
+          list.filter(a => a.id !== id)
+        );
+    }}/>
+  )
+}
