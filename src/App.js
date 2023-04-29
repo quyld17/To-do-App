@@ -114,18 +114,6 @@ function ListDisplay({list, setList, setTask}) {                            //Li
   );
 }
 
-function DeleteButton({list, setList, id}) {                                //Delete Component
-  function handleDelete() {
-    setList(list.filter(a => a.id !== id))
-  }
-  
-  return (
-    <BsTrash
-      className="remove-button" 
-      onClick={handleDelete}/>
-  )
-}
-
 function EditButton({list, setList, id, task}) {                            //Edit Component
   const [editMode, setEditMode] = useState(false);
   const [editedTask, setEditedTask] = useState(task);
@@ -183,4 +171,16 @@ function EditButton({list, setList, id, task}) {                            //Ed
       onClick={handleEdit}
     />
   );
+}
+
+function DeleteButton({list, setList, id}) {                                //Delete Component
+  function handleDelete() {
+    setList(list.filter(a => a.id !== id))
+  }
+  
+  return (
+    <BsTrash
+      className="remove-button" 
+      onClick={handleDelete}/>
+  )
 }
