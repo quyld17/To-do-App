@@ -25,7 +25,6 @@ export default function ToDoApp() {
           activity={activity}                                 //Input field
           setActivity={setActivity}
         />
-
         <AddButton                                            //Submit button
           activity={activity}         
           list={list}
@@ -34,24 +33,10 @@ export default function ToDoApp() {
         />
       </div>
       <h2 className='your-list-heading'>Your list:</h2>
-      <ul className='list'>                               {/*List*/}
-        {list.map(ls => (                           
-          <li 
-            className='list-item'
-            key={ls.id} 
-          >
-            <div style={{flexGrow: 1}}>                       {/*Name of list's item*/} 
-              {ls.activity}
-            </div>
-
-            <Delete                                           //Delete Button
-              list={list}
-              setList={setList}
-              id={ls.id}
-            />
-          </li>
-        ))}
-      </ul>
+      <ListDisplay 
+        list={list}
+        setList={setList}
+      />
     </form>
   );
 }
@@ -91,7 +76,30 @@ function AddButton({activity, list, setActivity, setList}) {  //Submit Component
   );
 }
 
-function Delete({list, setList, id}) {                     //Delete Component
+function ListDisplay({list, setList}) {
+  return (
+    <ul className='list'>                                   {/*List*/}
+      {list.map(ls => (                           
+        <li 
+          className='list-item'
+          key={ls.id} 
+        >
+          <div style={{flexGrow: 1}}>                       {/*Name of list's item*/} 
+            {ls.activity}
+          </div>
+
+          <DeleteButton                                      //Delete Button
+            list={list}
+            setList={setList}
+            id={ls.id}
+          />
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function DeleteButton({list, setList, id}) {                     //Delete Component
   return (
     <BsTrash
     className="remove-button" 
