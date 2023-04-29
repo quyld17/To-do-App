@@ -1,0 +1,61 @@
+.form-content {
+    background-color: #f5f6f7;
+    display: block;
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+    margin-top: 30px;
+}
+
+.h1-style {
+    margin-top: 0px;
+    text-align: center;
+}
+
+.box {
+    display: flex;
+    
+}
+
+.input-box {
+    padding: 3px;
+    text-align: left;
+    width: 80%;
+    margin-right: 50px;
+}
+
+.submit-button {
+    text-align: right;
+}
+
+.h2-style {
+    margin-top: 30px;
+    margin-bottom: 0px;
+}
+
+.ul-style {
+    margin-top: 10px;
+    list-style-type: none;
+    padding-left: 20px;
+}
+
+.list-item {
+    display: flex;
+    align-items: center; 
+    padding-bottom: 10px;
+}
+
+.edit-button {
+    font-size: 20px;
+    padding-right: 10px;
+}
+
+.remove-button {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.submit-button, .edit-button, .remove-button:hover {
+    cursor: pointer;
+}

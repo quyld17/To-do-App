@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import './app.css';
+import { BsTrash } from 'react-icons/bs';
+// import { FiEdit } from 'react-icons/fi';
 
 let nextId = 0;
 
@@ -6,103 +9,102 @@ export default function ToDoApp() {
   const [activity, setActivity] = useState('');
   const [list, setList] = useState([]);
 
-  const formContent = {
-    backgroundColor: "#f5f6f7",
-    display: "block",
-    padding: "30px",
-    marginLeft: "auto",
-    marginRight: "auto",
-    maxWidth: "500px",
-    marginTop: "30px",
-  };
-  const h1Style = {
-    marginTop: "0px",
-    textAlign: "center",
-  };
-  const inputBox = {
-    margin: "10px 0px",
-    width: "98%",
-    display: "block",
-    padding: "3px",
-  };
-  const submitButton = {
-    margin: "10px 0px",
-    display: "block",
-    width: "100%",
-    padding: "3px",
-  };
-  const h2Style = {
-    marginTop: "30px",
-    marginBottom: "0px",
-  };
-  const ulStyle = {
-    marginTop: "10px",
-    listStyleType: "none",
-    paddingLeft: "20px",
-  };
-
-  function handleInput(e) {
-    setActivity(e.target.value);
-  }
-
   function handleAfterSubmit(e) {
     e.preventDefault();
     setActivity('');
   }
 
-  function handleSubmitClick() {
-    if (activity !== '') {
-      setList([
-        ...list,
-        {id: nextId++,
-        activity: activity}
-      ])
-    }
-  }
-
   function handleDeleteClick(id) {
     setList(
-      list.filter(a =>
-        a.id !== id
-      )
+      list.filter(a => a.id !== id)
     );
   }
 
   return (
-    <div>
-      <form style={formContent} onSubmit={handleAfterSubmit}>
-        <h1 style={h1Style}>TO-DO LIST</h1>
-        <input 
-          style={inputBox}
-          placeholder="Type here..." 
-          value={activity}
-          onChange={handleInput}
+    <form 
+      className='form-content'
+      onSubmit={handleAfterSubmit}
+    >
+      <h1 className='h1-style'>TO-DO LIST</h1>
+      <div className='box'>
+        <InputBar 
+          activity={activity}                                 //Input field
+          setActivity={setActivity}
         />
-        <button 
-          style={submitButton}
-          type="submit" 
-          onClick={handleSubmitClick}
-        >
-          Submit
-        </button>
-        <h2 style={h2Style}>Your list:</h2>
-        <ul style={ulStyle}>
-          {list.map(list => (
-            <li 
-              style={{ display: "flex", alignItems: "center", paddingBottom: "6px" }}
+
+        <AddButton                                            //Submit button
+          activity={activity}         
+          list={list}
+          setActivity={setActivity}  
+          setList={setList}
+        />
+      </div>
+      <h2 className='h2-style'>Your list:</h2>
+      <ul className='ul-style'>                               {/*List*/}
+        {list.map(list => (                           
+          <li 
+            className='list-item'
+            key={list.id} 
+          >
+            <div style={{flexGrow: 1}}>                       {/*Name of list's item*/} 
+              {list.activity}
+            </div>
+
+            {/* <Delete  
+              list={list}
+              setList={setList}
               key={list.id}
-            >
-              <div style={{flexGrow: 1}}>{list.activity}{' '}</div>
-              <button 
-              style={{marginRight: "20px"}}
+            /> */}
+            <BsTrash                                          //Delete function
+              className="remove-button"
               onClick={() => handleDeleteClick(list.id)}
-              >
-                X
-              </button>
-            </li>
-          ))}
-        </ul>
-      </form>
-    </div>
+            />
+          </li>
+        ))}
+      </ul>
+    </form>
   );
 }
+
+function InputBar({activity, setActivity},) {                 //Input Component
+  return (
+    <input 
+      className='input-box'
+      placeholder="Type here..." 
+      value={activity}
+      onChange={(e) => setActivity(e.target.value)}
+    />
+  );
+}
+
+function AddButton({activity, list, setActivity, setList}) {  //Submit Component
+  return (
+    <button
+      className='submit-button'
+      type="submit" 
+      onClick={() =>{
+        if(activity.trim() === '') {
+          return;
+        }
+        setList([
+          ...list,
+          {
+            id: nextId++,
+            activity: activity.trim()
+          }
+        ]);
+        setActivity('');
+      }}
+    >
+      Add
+    </button>
+  );
+}
+
+// function Delete({list, setList, id}) {                     //Delete Component
+//   return (
+//     setList(
+//       list.filter(a => a.id !== id)
+//     )
+//   )
+// }
