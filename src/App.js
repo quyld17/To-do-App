@@ -32,7 +32,6 @@ export default function ToDoApp() {
           setList={setList}
         />
       </div>
-      <h2 className='your-list-heading'>Your list:</h2>
       <ListDisplay 
         list={list}
         setList={setList}
@@ -76,26 +75,29 @@ function AddButton({activity, list, setActivity, setList}) {  //Submit Component
   );
 }
 
-function ListDisplay({list, setList}) {
+function ListDisplay({list, setList}) {                     //List display Component
   return (
-    <ul className='list'>                                   {/*List*/}
-      {list.map(ls => (                           
-        <li 
-          className='list-item'
-          key={ls.id} 
-        >
-          <div style={{flexGrow: 1}}>                       {/*Name of list's item*/} 
-            {ls.activity}
-          </div>
+    <>
+      <h2 className='your-list-heading'>Your list:</h2>
+      <ul className='list'>                                   {/*List*/}
+        {list.map(ls => (                           
+          <li 
+            className='list-item'
+            key={ls.id} 
+          >
+            <div style={{flexGrow: 1}}>                       {/*Name of list's item*/} 
+              {ls.activity}
+            </div>
 
-          <DeleteButton                                      //Delete Button
-            list={list}
-            setList={setList}
-            id={ls.id}
-          />
-        </li>
-      ))}
-    </ul>
+            <DeleteButton                                      //Delete Button
+              list={list}
+              setList={setList}
+              id={ls.id}
+            />
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }
 
