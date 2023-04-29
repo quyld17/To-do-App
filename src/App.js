@@ -19,7 +19,7 @@ export default function ToDoApp() {
       className='form-content'
       onSubmit={handleAfterSubmit}
     >
-      <h1 className='h1-style'>TO-DO LIST</h1>
+      <h1 className='title'>TO-DO LIST</h1>
       <div className='box'>
         <InputBar 
           activity={activity}                                 //Input field
@@ -33,8 +33,8 @@ export default function ToDoApp() {
           setList={setList}
         />
       </div>
-      <h2 className='h2-style'>Your list:</h2>
-      <ul className='ul-style'>                               {/*List*/}
+      <h2 className='your-list-heading'>Your list:</h2>
+      <ul className='list'>                               {/*List*/}
         {list.map(ls => (                           
           <li 
             className='list-item'
@@ -59,7 +59,7 @@ export default function ToDoApp() {
 function InputBar({activity, setActivity},) {                 //Input Component
   return (
     <input 
-      className='input-box'
+      className='input-bar'
       placeholder="Type here..." 
       value={activity}
       onChange={(e) => setActivity(e.target.value)}
