@@ -41,13 +41,41 @@
 
 .list-item {
     display: flex;
+    flex-wrap: wrap;
     align-items: center; 
-    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.task-name {
+    flex-grow: 1;
 }
 
 .edit-button {
     font-size: 20px;
-    padding-right: 10px;
+    margin-right: 10px;
+}
+
+.edit-box {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 10px;
+}
+
+.edit-bar {
+    padding-bottom: 3px;
+    padding-top: 3px;
+    height: 16px;
+    margin-right: 10px;
+}
+
+.save-button {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.cancel-button {
+    font-size: 20px;
 }
 
 .remove-button {
@@ -55,6 +83,6 @@
     font-size: 20px;
 }
 
-.submit-button, .edit-button, .remove-button:hover {
+.submit-button, .edit-button, .remove-button, .save-button, .cancel-button:hover {
     cursor: pointer;
 }
