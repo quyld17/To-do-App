@@ -1,88 +1,94 @@
 .form-content {
-    background-color: #f5f6f7;
-    display: block;
-    padding: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 500px;
-    margin-top: 30px;
+  background-color: #f5f6f7;
+  display: block;
+  padding: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500px;
+  margin-top: 30px;
 }
 
 .title {
-    margin-top: 0px;
-    text-align: center;
+  margin-top: 0px;
+  text-align: center;
 }
 
 .box {
-    display: flex;
+  display: flex;
 }
 
 .input-bar {
-    padding: 3px;
-    text-align: left;
-    width: 80%;
-    margin-right: 50px;
+  padding: 3px;
+  text-align: left;
+  width: 80%;
+  margin-right: 50px;
 }
 
 .submit-button {
-    text-align: right;
+  text-align: right;
 }
 
 .your-list-heading {
-    margin-top: 30px;
-    margin-bottom: 0px;
+  margin-top: 30px;
+  margin-bottom: 0px;
 }
 
 .list {
-    margin-top: 10px;
-    list-style-type: none;
-    padding-left: 20px;
+  margin-top: 10px;
+  list-style-type: none;
+  padding-left: 20px;
 }
 
 .list-item {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center; 
-    margin-top: 10px;
-    margin-bottom: 10px;
+  display: flex;
+  /* flex-wrap: wrap; */
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .task-name {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 .edit-button {
-    font-size: 20px;
-    margin-right: 10px;
+  font-size: 20px;
+  margin-right: 10px;
 }
 
 .edit-box {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 10px;
 }
 
 .edit-bar {
-    padding-bottom: 3px;
-    padding-top: 3px;
-    height: 16px;
-    margin-right: 10px;
+  display: flex;
+  flex-grow: 1;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  height: 16px;
+  margin-right: 220px;
 }
 
 .save-button {
-    font-size: 20px;
-    margin-right: 10px;
+  font-size: 20px;
+  margin-right: 10px;
 }
 
 .cancel-button {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .remove-button {
-    margin-right: 10px;
-    font-size: 20px;
+  margin-right: 10px;
+  font-size: 20px;
 }
 
-.submit-button, .edit-button, .remove-button, .save-button, .cancel-button:hover {
-    cursor: pointer;
+.submit-button,
+.edit-button,
+.remove-button,
+.save-button,
+.cancel-button:hover {
+  cursor: pointer;
 }

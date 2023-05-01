@@ -2,29 +2,29 @@ import { useState } from "react";
 import "./app.css";
 
 import { InputBar } from "./Components/input-bar";
-import { AddButton } from "./Components/add-button";
-import { ListDisplay } from "./Components/list-display";
+import { AddTask } from "./Components/add-task";
+import { TaskListDisplay } from "./Components/task-list-display";
 
 export default function ToDoApp() {
   const [task, setTask] = useState("");
   const [list, setList] = useState([]);
-  const [nextId, setNextId] = useState(0);
+  const [nextTaskId, setNextTaskId] = useState(0);
 
   return (
     <form className="form-content">
       <h1 className="title">TO-DO LIST</h1>
       <div className="box">
         <InputBar task={task} setTask={setTask} />
-        <AddButton
+        <AddTask
           task={task}
           list={list}
-          nextId={nextId}
+          nextTaskId={nextTaskId}
           setTask={setTask}
           setList={setList}
-          setNextId={setNextId}
+          setNextTaskId={setNextTaskId}
         />
       </div>
-      <ListDisplay list={list} setList={setList} setTask={setTask} />
+      <TaskListDisplay list={list} setList={setList} setTask={setTask} />
     </form>
   );
 }

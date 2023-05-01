@@ -1,4 +1,11 @@
-export function AddButton({ task, list, nextId, setTask, setList, setNextId }) {
+export function AddTask({
+  task,
+  list,
+  nextTaskId,
+  setTask,
+  setList,
+  setNextTaskId,
+}) {
   function handleAfterSubmit() {
     setTask("");
   }
@@ -11,12 +18,12 @@ export function AddButton({ task, list, nextId, setTask, setList, setNextId }) {
     setList([
       ...list,
       {
-        id: nextId,
+        id: nextTaskId,
         task: task.trim(),
       },
     ]);
     setTask("");
-    setNextId((prevNextId) => prevNextId + 1);
+    setNextTaskId((prevNextTaskId) => prevNextTaskId + 1);
     handleAfterSubmit();
   }
 
