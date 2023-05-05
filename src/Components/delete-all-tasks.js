@@ -1,19 +1,16 @@
 export function DeleteAllTasks({ list, setList }) {
-  function handleDeleteAllTasks() {
+  function handleDeleteAllTasks(e) {
+    e.preventDefault();
     const confirmDeleteAll = window.confirm(
       "Do you want to delete all the tasks?"
     );
     if (confirmDeleteAll) {
-      for (const item of list) {
-        setList(list.filter((a) => a !== item));
-      }
-    } else {
-      return;
+      setList([]);
     }
   }
 
   return (
-    <button className="delete-all" onClick={handleDeleteAllTasks}>
+    <button className="delete-all-tasks-button" onClick={handleDeleteAllTasks}>
       Delete all
     </button>
   );

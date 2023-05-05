@@ -29,8 +29,15 @@
 }
 
 .your-list-heading {
-  margin-top: 30px;
-  margin-bottom: 0px;
+  display: flex;
+  height: 32px;
+  margin-top: 10px;
+}
+
+.your-list-title {
+  display: flex;
+  flex-grow: 1;
+  margin: 0;
 }
 
 .list {
@@ -89,6 +96,7 @@
 .edit-button,
 .remove-button,
 .save-button,
-.cancel-button:hover {
+.cancel-button,
+.delete-all-tasks-button:hover {
   cursor: pointer;
 }
