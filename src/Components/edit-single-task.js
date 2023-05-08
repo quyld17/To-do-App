@@ -21,6 +21,11 @@ export function EditSingleTask({ list, setList, id, task, item }) {
   };
 
   function handleCancel() {
+    if (editedTask === task) {
+      setEditModeOn(false);
+      setEditedTask(task);
+      return;
+    }
     const confirmCancel = window.confirm("Do you want to cancel editing?");
     if (confirmCancel) {
       setEditModeOn(false);

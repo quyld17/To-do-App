@@ -75,19 +75,22 @@
   padding-bottom: 3px;
   padding-top: 3px;
   height: 16px;
-  margin-right: 220px;
+  margin-right: 213px;
 }
 
 .save-button {
+  display: flex;
   font-size: 20px;
   margin-right: 10px;
 }
 
 .cancel-button {
+  display: flex;
   font-size: 20px;
 }
 
 .remove-button {
+  display: right;
   margin-right: 10px;
   font-size: 20px;
 }
