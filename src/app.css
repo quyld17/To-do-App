@@ -48,7 +48,6 @@
 
 .list-item {
   display: flex;
-  /* flex-wrap: wrap; */
   align-items: center;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -74,8 +73,8 @@
   flex-grow: 1;
   padding-bottom: 3px;
   padding-top: 3px;
-  height: 16px;
-  margin-right: 213px;
+  height: 16px; 
+  margin-right: 220px;
 }
 
 .save-button {
